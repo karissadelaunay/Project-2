@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const Category = require('../models/category');
 
 const workoutSchema = new mongoose.Schema({
     workoutName: String,
@@ -12,3 +13,5 @@ const categorySchema = new mongoose.Schema({
     userWorkouts: {type: Schema.Types.ObjectId, ref: 'User'},
     workouts: [workoutSchema]
 });
+
+module.exports = mongoose.model('category', categorySchema);
