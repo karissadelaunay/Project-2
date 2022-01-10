@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
-// const Category = require('../models/category');
+// const User = require('../models/user');
+const Schema = mongoose.Schema
 
-const workoutSchema = new mongoose.Schema({
+const workoutSchema = new Schema({
     workoutName: String,
     sets: Number,
     reps: Number,
     userFavorites: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = new Schema({
     category: String,
-    userWorkouts: {type: Schema.Types.ObjectId, ref: 'User'},
+    userCategory: {type: Schema.Types.ObjectId, ref: 'User'},
     workouts: [workoutSchema]
 });
 
