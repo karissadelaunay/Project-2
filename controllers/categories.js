@@ -8,22 +8,30 @@ module.exports = {
     // show
 }
 
-function create(req, res){
+async function create(req, res){
+    try{
 
-	console.log(req.body)
+        const category = await Category.create(req.body.category);
+        res.send(categoryDocument);
+    } catch(err){
 
-	Category = req.body.category; 
+    }
+}
 
-	req.body.userCategory = (`../models/user`)
 
-    req.body.workouts = [];
+	// console.log(req.body)
 
-	Category.create(req.body, function(err, categoryDocument){ 
-		console.log(categoryDocument, " <categoryDocument");
+	// Category = req.body.category; 
+
+	// req.body.userCategory = (`../models/user`)
+
+    // req.body.workouts = [];
+
+	// Category.create(req.body, function(err, categoryDocument){ 
+	// 	console.log(categoryDocument, " <categoryDocument");
 
 		
-		res.send(categoryDocument); 
-	})
+	// 	res.send(categoryDocument); 
+	// })
 
 
-}

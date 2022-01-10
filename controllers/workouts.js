@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
 	create, 
-    // update,
+    new: newWorkout,
     // delete: deleteWorkout
     addToCategory
 }
@@ -31,3 +31,19 @@ function addToCategory(req, res){
     }
     
      }
+
+     async function newWorkout(req, res) {
+        try {
+            const workoutDocuments = await Workout.find({})
+            const categoryId = req.params.categoryId
+            res.render('workouts/new',{
+                title: 'Add Workout',
+                workouts: workoutDocuments,
+                categoryId
+            })
+    
+        } catch(err) {
+    
+        }
+    
+    }
