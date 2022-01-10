@@ -10,7 +10,10 @@ const workoutSchema = new Schema({
 });
 
 const categorySchema = new Schema({
-    category: String,
+    category: {
+        String,
+        enum: ['Leg Day', 'Arms', 'Back', 'Butt', 'Cardio', 'Stretches']
+    },
     userCategory: {type: Schema.Types.ObjectId, ref: 'User'},
     workouts: [workoutSchema]
 });

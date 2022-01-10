@@ -5,28 +5,29 @@ module.exports = {
 	create, 
     // update,
     // delete: deleteWorkout
+    addToCategory
 }
 
-function create(req, res){
-	console.log(req.params.id, " req.params.id")
-	console.log(req.body, " req.body aka the contents of the form")
+function addToCategory(req, res){
 
-    // req.body.workoutName = req.body.workoutName; 
+        try { 
+            const categoryDocument = await Category.findById(req.params.categoryId)
+            const workoutDocument = await Workout.category.push(categoryDocument._id)
+            .save();
+            res.redirect(`/categories/${categoryDocument._id}`)
+    
+        } catch(err) {
+    
+        }
+    }
 
-	 req.body.sets = parseInt(req.body.sets)
-
-     req.body.reps = parseInt(req.body.reps)
-
-    Category.findById(req.params.id, function(err, categoryDocument){
-
-		categoryDocument.workouts.push(req.body);
-		
-		console.log(categoryDocument, " <- this is MovieDocument, in create reviews CTRL")
-		
-		categoryDocument.save(function(err){
-
-			res.redirect(`/categories/${categoryDocument._id}`)
-		})
-	
-	})
-}
+    async function create(req, res) {
+        try {
+            const workout = await Workout.create(req.body)
+            res.redirect(`/categories/${req.body.category}`);
+    
+        } catch(err){
+    
+    }
+    
+     }

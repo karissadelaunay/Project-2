@@ -12,9 +12,9 @@ function create(req, res){
 
 	console.log(req.body)
 
-	category = req.body.category; 
+	Category = req.body.category; 
 
-	//  req.body.userCategory = (`/categories/${userDocument._id}`)
+	req.body.userCategory = (`../models/user`)
 
     req.body.workouts = [];
 
