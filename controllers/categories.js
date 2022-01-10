@@ -12,17 +12,17 @@ function create(req, res){
 
 	console.log(req.body)
 
-	// req.body.category = req.body.category; 
+	category = req.body.category; 
 
 	//  req.body.userCategory = (`/categories/${userDocument._id}`)
 
-    //  req.body.workouts = ['workoutName', 'sets', 'reps'];
+    req.body.workouts = [];
 
 	Category.create(req.body, function(err, categoryDocument){ 
 		console.log(categoryDocument, " <categoryDocument");
 
 		
-		res.redirect(`/categories/${categoryDocument._id}`); 
+		res.send(categoryDocument); 
 	})
 
 
