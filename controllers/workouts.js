@@ -26,7 +26,7 @@ async function addToCategory(req, res){
             const categoryDocument = await Category.findById(req.params.id);
             workouts.push();
             save();
-            res.redirect(`/categories/${categoryDocument._id}`);
+            res.redirect(`/categories/${req.body.categories}`);
     
         } catch(err){
     

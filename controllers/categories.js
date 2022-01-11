@@ -41,8 +41,8 @@ async function show(req, res) {
 async function create(req, res){
     try{
 
-        const category = await Category.create(req.body.category);
-        res.redirect('/categories/');
+        const category = await Category.create(req.body.params);
+        res.redirect('/categories');
     } catch(err){
 
     }
