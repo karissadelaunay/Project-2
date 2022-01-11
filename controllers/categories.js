@@ -2,36 +2,57 @@ const Category = require('../models/category');
 const User = require('../models/user');
 
 module.exports = {
+    index,
 	create,
-    // delete: deleteCategory,
-    // new: newCategory,
-    // show
+    new: newCategory,
+    show
+}
+
+async function index(req, res){
+
+    try{
+
+        const categoryDocuments = await Category.find({})
+        res.render('categories/index',{
+            title: 'Categories',
+        categories: categoryDocuments
+        });
+        
+    } catch(err){
+
+    }
+
+}
+
+async function show(req, res) {
+    try{
+        const categoryDocument = await Category.findById(req.params.id)
+        const workoutDocuments = await Workout.find({category: categoryDocument._id})
+            res.render('categories/show', {
+                title: 'Category Details',
+                category: categoryDocument,
+                workouts: workoutDocuments
+            })
+    } catch(err){
+
+    }
 }
 
 async function create(req, res){
     try{
 
         const category = await Category.create(req.body.category);
-        res.send(categoryDocument);
+        res.redirect('/categories/');
     } catch(err){
 
     }
 }
 
-
-	// console.log(req.body)
-
-	// Category = req.body.category; 
-
-	// req.body.userCategory = (`../models/user`)
-
-    // req.body.workouts = [];
-
-	// Category.create(req.body, function(err, categoryDocument){ 
-	// 	console.log(categoryDocument, " <categoryDocument");
-
-		
-	// 	res.send(categoryDocument); 
-	// })
-
-
+async function newCategory(req, res){
+    try{
+        res.render('categories/new', {title: 'New Category'})
+    
+    } catch(err){
+    
+    }
+}

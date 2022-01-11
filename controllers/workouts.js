@@ -11,39 +11,39 @@ module.exports = {
 async function addToCategory(req, res){
 
         try { 
-            const categoryDocument = await Category.findById(req.params.categoryId)
+            const categoryDocument = await Category.findById(req.params.categoryId);
             const workoutDocument = await Workout.category.push(categoryDocument._id)
             .save();
-            res.redirect(`/categories/${categoryDocument._id}`)
+            res.redirect(`/categories/${categoryDocument._id}`);
     
         } catch(err) {
-            res.status(500).send()
+            res.status(500).send();
         }
-    }
+    };
 
     async function create(req, res) {
         try {
-            const workout = await Workout.create(req.body)
+            const workout = await Workout.create(req.body);
             res.redirect(`/categories/${req.body.category}`);
     
         } catch(err){
     
-    }
+        }
     
-     }
+     };
 
      async function newWorkout(req, res) {
         try {
-            const workoutDocuments = await Workout.find({})
-            const categoryId = req.params.categoryId
+            const workoutDocuments = await Workout.find({});
+            const categoryId = req.params.categoryId;
             res.render('workouts/new',{
                 title: 'Add Workout',
                 workouts: workoutDocuments,
                 categoryId
-            })
+            });
     
         } catch(err) {
     
         }
     
-    }
+    };
