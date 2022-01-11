@@ -23,8 +23,10 @@ async function addToCategory(req, res){
 
     async function create(req, res) {
         try {
-            const workout = await Workout.create(req.body);
-            res.redirect(`/categories/${req.body.category}`);
+            const categoryDocument = await Category.findById(req.params.id);
+            workouts.push();
+            save();
+            res.redirect(`/categories/${categoryDocument._id}`);
     
         } catch(err){
     
