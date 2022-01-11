@@ -11,10 +11,11 @@
     <% }) %> 
 </section>
 
-<a href="/workouts/new/<%= category._id %>">New Workout</a>
+<a href="/workouts/new<%= category._id %>">New Workout</a>
+
 
 <br><br>
-<form id="add-workout-form" method="POST" action="/categories/<%= category._id %>/workouts">
+<form id="add-workout-form" method="POST" action="/categories<%= category._id %>/workouts">
   <label>Workouts:</label>
   <label>Sets:</label>
     <select name="sets">
