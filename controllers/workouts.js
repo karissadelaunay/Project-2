@@ -23,7 +23,12 @@ async function addToCategory(req, res){
 
     async function create(req, res) {
         try {
-            const workout = await Workout.create(req.body)
+            const sets = parseInt(req.body.sets);
+            const reps = parseInt(req.body.reps);
+            const workout = await Workout.create({
+                sets: sets,
+                reps: reps
+            });
             res.redirect(`/categories/${req.body.category}`);
     
         } catch(err){
@@ -34,7 +39,7 @@ async function addToCategory(req, res){
 
      async function newWorkout(req, res) {
         try {
-            const workoutDocuments = await Workout.find({});
+            const workoutDocuments = await Workouts.find({});
             const categoryId = req.params.categoryId;
             res.render('workouts/new',{
                 title: 'Add Workout',
