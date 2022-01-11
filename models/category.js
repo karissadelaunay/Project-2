@@ -18,7 +18,7 @@ const workoutSchema = new Schema({
 const categorySchema = new Schema({
     category: {
         type: String,
-        enum: ['Leg Day', 'Arms', 'Back', 'Butt', 'Cardio', 'Stretches']
+        enum: ['Leg Day', 'Arms', 'Back', 'Butt', 'Cardio', 'Stretches', 'Rest Day']
     },
     userCategory: [{type: Schema.Types.ObjectId, ref: 'User'}],
     workouts: {

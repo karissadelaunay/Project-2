@@ -1,20 +1,5 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-    <div>Category:</div>
-    <div><%= category.category %></div>
-    <div>Workouts:</div>
-    <% category.workouts.forEach(workouts => { %> 
-        <div><%= workouts.workoutName %> 
-        <div><%= workouts.sets %></div>
-        <div><%= workouts.reps %></div>
-    </div>
-    <% }) %> 
-</section>
-
-<a href="/workouts/new<%= category._id %>">New Workout</a>
-
-
 <br><br>
 <form id="add-workout-form" method="POST" action="/categories<%= category._id %>/workouts">
   <label>Workouts:</label>
