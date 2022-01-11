@@ -8,7 +8,7 @@ module.exports = {
     addToCategory
 }
 
-function addToCategory(req, res){
+async function addToCategory(req, res){
 
         try { 
             const categoryDocument = await Category.findById(req.params.categoryId)
@@ -17,7 +17,7 @@ function addToCategory(req, res){
             res.redirect(`/categories/${categoryDocument._id}`)
     
         } catch(err) {
-    
+            res.status(500).send()
         }
     }
 

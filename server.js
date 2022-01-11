@@ -20,6 +20,8 @@ require('./config/passport');
 
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
+var categoriesRoutes = require('./routes/categories');
+var workoutsRoutes = require('./routes/workouts');
 
 
 
@@ -53,7 +55,9 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
-app.use('/', usersRoutes);
+app.use('/users', usersRoutes);
+app.use('/', workoutsRoutes);
+app.use('/', categoriesRoutes);
 
 
 // invalid request, send 404 page

@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/categories" method="POST">
+    <label>Category:</label>
+    <select name="category">
+        <option value="Leg Day">Leg Day</option>
+        <option value="Arms">Arms</option>
+        <option value="Back">Back</option>
+        <option value="Butt">Butt</option>
+        <option value="Cardio">Cardio</option>
+        <option value="Stretches">Stretches</option>
+      </select>
+    <input type="submit" value="Add Category">
+  </form>
+
+  <%- include('../partials/footer') %>
