@@ -28,7 +28,7 @@ async function show(req, res) {
     try{
         const categoryDocument = await Category.findById(req.params.id);
         categoryDocument.populate('workouts');
-        console.log(categoryDocument);
+        console.log('catDoc', categoryDocument);
         res.render('categories/show', {
             title: 'Category Details',
             category: categoryDocument,

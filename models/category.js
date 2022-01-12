@@ -22,9 +22,8 @@ const categorySchema = new Schema({
         enum: ['Leg Day', 'Arms', 'Back', 'Butt', 'Cardio', 'Stretches', 'Rest Day']
     },
     userCategory: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    workouts: {
-        type: [workoutSchema]
-    }
+    workouts: [workoutSchema]
+    
 });
 const Category = mongoose.model('category', categorySchema);
 

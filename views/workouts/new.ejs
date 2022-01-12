@@ -10,7 +10,7 @@
     </select>
 
 <br><br>
-<form id="add-workout-form" method="POST" action="/workouts">
+<form id="add-workout-form" method="POST" action="/categories/<%= categoryId %>/workouts">
     <input name="category" value="<%= categoryId %>">
   <label>Workouts:</label>
     <input type="text" name="workoutName">
