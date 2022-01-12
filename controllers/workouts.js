@@ -5,11 +5,11 @@ const categories = require('./categories');
 module.exports = {
 	create, 
     new: newWorkout,
-    delete: deleteWorkout
+    delete: deleteWorkout,
+    update
 }
 
     async function create(req, res) {
-        console.log(req.body)
         try {
             const sets = parseInt(req.body.sets);
             const reps = parseInt(req.body.reps);
@@ -23,7 +23,6 @@ module.exports = {
                 categoryDocument.workouts.push(workout)
                 await categoryDocument.save()
             }
-            console.log(workout, 'this is my workout')
             res.redirect(`/categories/${req.body.category}`);
     
         } catch(err){
@@ -51,16 +50,13 @@ module.exports = {
     };
 
     async function deleteWorkout(req, res) {
-        console.log(req.body, 'this is my bodyyyyy');
         try {
-            console.log(req.params, 'this is the params')
             const workoutDocument = await Workout.findByIdAndDelete(req.params.id);
             const a = await Category.updateMany({},{
                 $pull: {workouts: {_id: req.params.id}}
             })
         
          if (!workoutDocument) res.redirect('/categories');
-            //res.redirect('/categories');
             res.redirect('/categories');
 
         } catch(err) {
@@ -68,3 +64,21 @@ module.exports = {
             res.status(500).send();
         }
     };
+
+    async function update(req, res) {
+        try{
+            const workoutDocument = await Workout.findByIdAndUpdate(req.params.id);
+            const b = await Workout.updateMany({},{
+                $pull: {workouts: {_id: req.params.id}}
+            })
+            
+            
+            // const workoutDocument = await req.body.userFavorites === 'on';
+            // const b = await Workout.findByIdAndUpdate(req.params.id, req.body);
+            // res.redirect('/categories');
+
+        } catch(err) {
+            console.log(err)
+            res.status(500).send();
+        }
+    }
