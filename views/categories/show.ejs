@@ -16,6 +16,14 @@
   <%}%>
 </section>
 
-<a href="/workouts/new/<%= category._id %>">New Workout</a>
+<a href="/workouts/new/<%= category.id %>">New Workout</a>
+
+<% workouts.forEach(function(w) { %>
+
+    <form action="/workouts/<%= w._id %>?_method=DELETE"
+      class="delete-form" method="POST">
+      <button type="submit">X</button>
+    </form>
+    <% }); %>
 
 <%- include('../partials/footer') %>

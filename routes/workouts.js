@@ -5,8 +5,7 @@ var workoutsCtrl = require('../controllers/workouts');
 router.get('/workouts/new/:categoryId', isLoggedIn, workoutsCtrl.new);
 router.post('/categories/:categoryId/workouts', isLoggedIn, workoutsCtrl.create);
 router.post('/workouts', isLoggedIn,  workoutsCtrl.create);
-
-//router.post('/categories/:categoryId/workouts', isLoggedIn, workoutsCtrl.addToCategory)
+router.delete('/workouts/:id', isLoggedIn, workoutsCtrl.delete);
 
 function isLoggedIn(req, res, next) {
 	

@@ -1,25 +1,12 @@
 const {Category, Workout} = require('../models/category');
 const User = require('../models/user');
+const categories = require('./categories');
 
 module.exports = {
 	create, 
     new: newWorkout,
-    // delete: deleteWorkout
-    // addToCategory
+    delete: deleteWorkout
 }
-
-// async function addToCategory(req, res){
-
-//         try { 
-//             const categoryDocument = await Category.findById(req.params.categoryId)
-//             const Workout = await categoryDocument.workout.push(categoryDocument._id)
-//             .save();
-//             res.redirect(`/categories/${categoryDocument._id}`);
-    
-//         } catch(err) {
-//             res.status(500).send(err);
-//         }
-//     };
 
     async function create(req, res) {
         console.log(req.body)
@@ -61,4 +48,23 @@ module.exports = {
             res.status(500).send();
         }
     
+    };
+
+    async function deleteWorkout(req, res) {
+        console.log(req.body, 'this is my bodyyyyy');
+        try {
+            console.log(req.params, 'this is the params')
+            const workoutDocument = await Workout.findByIdAndDelete(req.params.id);
+            const a = await Category.updateMany({},{
+                $pull: {workouts: {_id: req.params.id}}
+            })
+        
+         if (!workoutDocument) res.redirect('/categories');
+            //res.redirect('/categories');
+            res.redirect('/categories');
+
+        } catch(err) {
+            console.log(err);
+            res.status(500).send();
+        }
     };
