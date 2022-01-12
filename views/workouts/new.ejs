@@ -1,19 +1,30 @@
 <%- include('../partials/header') %>
 
+<p>
+    <select>
+      <% workouts.forEach(function(w) { %>
+        <option><%= w.workoutName %></option>
+        <option><%= w.sets %></option>
+        <option><%= w.reps %></option>
+      <% }) %>
+    </select>
+
 <br><br>
-<form id="add-workout-form" method="POST" action="/categories<%= category._id %>/workouts">
+<form id="add-workout-form" method="POST" action="/workouts">
+    <input name="category" value="<%= categoryId %>">
   <label>Workouts:</label>
+    <input type="text" name="workoutName">
   <label>Sets:</label>
     <select name="sets">
         <option value="3">3</option>
+    </select>
    <label>Reps:</label>
     <select name="reps">
         <option value="8">8</option>
         <option value="10">10</option>
         <option value="12">12</option>
-      </select>
-        <input type="submit" value="Add Workout">
     </select>
+    <input type="submit" value="Add Workout">
 </form>
 
 <%- include('../partials/footer') %>

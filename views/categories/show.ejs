@@ -4,31 +4,25 @@
     <div>Category:</div>
     <div><%= category.category %></div>
     <div>Workouts:</div>
-    <% category.workouts.forEach(workouts => { %> 
-        <div><%= workouts.workoutName %> 
-        <div><%= workouts.sets %></div>
-        <div><%= workouts.reps %></div>
+    <% category.workouts.forEach(workout => { %> 
+        <div><%= workout.workoutName %> 
+        <div><%= workout.sets %></div>
+        <div><%= workout.reps %></div>
     </div>
     <% }) %> 
+
+    <div>Workouts:</div>
+    <% if (workouts.length >0) { %>
+        <%workouts.forEach(function (w){%>
+            <div>Workout:<%=w.workoutName%></div>
+            <div>Sets:<%=w.sets%></div>
+            <div>Reps:$<%=w.reps%></div>
+        <%})%>
+  <% } else { %>
+  <div>No workouts yet</div>
+  <%}%>
 </section>
 
-<a href="/workouts/new<%= category._id %>">New Workout</a>
-
-
-<br><br>
-<form id="add-workout-form" method="POST" action="/categories<%= category._id %>/workouts">
-  <label>Workouts:</label>
-  <label>Sets:</label>
-    <select name="sets">
-        <option value="3">3</option>
-   <label>Reps:</label>
-    <select name="reps">
-        <option value="8">8</option>
-        <option value="10">10</option>
-        <option value="12">12</option>
-      </select>
-        <input type="submit" value="Add Workout">
-    </select>
-</form>
+<a href="/workouts/new/<%= category._id %>">New Workout</a>
 
 <%- include('../partials/footer') %>

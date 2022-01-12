@@ -14,6 +14,7 @@ const workoutSchema = new Schema({
     }, 
     userFavorites: {type: Schema.Types.ObjectId, ref: 'User'}
 });
+const Workout = mongoose.model('workout', workoutSchema);
 
 const categorySchema = new Schema({
     category: {
@@ -25,5 +26,9 @@ const categorySchema = new Schema({
         type: [workoutSchema]
     }
 });
+const Category = mongoose.model('category', categorySchema);
 
-module.exports = mongoose.model('category', categorySchema);
+module.exports = {
+    Workout,
+    Category
+};

@@ -1,4 +1,4 @@
-const Category = require('../models/category');
+const {Category} = require('../models/category');
 const User = require('../models/user');
 
 module.exports = {
@@ -26,15 +26,16 @@ async function index(req, res){
 
 async function show(req, res) {
     try{
-        const categoryDocument = await Category.findById(req.params.id)
-        const workoutDocuments = await Workout.find({category: categoryDocument._id})
-            res.render('categories/show', {
-                title: 'Category Details',
-                category: categoryDocument,
-                workouts: workoutDocuments
-            })
+        const categoryDocument = await Category.findById(req.params.id);
+        categoryDocument.populate('workouts');
+        console.log(categoryDocument);
+        res.render('categories/show', {
+            title: 'Category Details',
+            category: categoryDocument,
+            workouts: categoryDocument.workouts
+        })
     } catch(err){
-
+        console.log(err, 'error in show function');
     }
 }
 
