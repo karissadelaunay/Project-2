@@ -32,7 +32,7 @@ This is your passport boilerplate.
 #### Make a commit 
 
 ```git commit -m "setup up oauth and User Model"```
-
+# Workout With Me!
 
 #### User Stories (sudo code)
 
