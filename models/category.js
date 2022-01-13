@@ -12,7 +12,10 @@ const workoutSchema = new Schema({
     reps: {
         type: Number
     }, 
-    userFavorites: {type: Schema.Types.ObjectId, ref: 'User'}
+    userFavorites: {
+        type: Boolean, 
+        default: false
+    }
 });
 const Workout = mongoose.model('workout', workoutSchema);
 

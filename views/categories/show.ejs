@@ -10,7 +10,14 @@
             <div>Workout: <%= w.workoutName %></div>
             <div>Sets: <%= w.sets %></div>
             <div>Reps: <%= w.reps %></div>
-        <%})%>
+            <% console.log(w.userFavorites, "this is a boolean") %>
+    <form action="/categories/<%= category._id %>/workouts/<%= w._id %>?_method=PUT" method="POST" >
+        <label>Favorite</label>
+        <input type="checkbox" name="userFavorites" <%= w.userFavorites === true ? 'checked' : '' %>>
+        <button type="submit">Save As Favorite</button>
+  </form>
+<%})%>
+
   <% } else { %>
   <div>No workouts yet</div>
   <%}%>
@@ -25,12 +32,5 @@
       <button type="submit">X</button>
     </form>
     <% }); %>
-
-    <h1>My Favorites!</h1>
-  <form action="/workouts/<%= workouts.id %>?_method=PUT" method="POST" autocomplete="off">
-    <input type="text" name="workouts" value="<%= workouts.workoutName %>">
-    <input type="checkbox" name="userFavorites" <%= workouts.userFavorites ? 'checked' : '' %>>
-    <button type="submit">Save As Favorite</button>
-  </form>
 
 <%- include('../partials/footer') %>

@@ -6,7 +6,7 @@ module.exports = {
 	create, 
     new: newWorkout,
     delete: deleteWorkout,
-    update
+    update: updateFav
 }
 
     async function create(req, res) {
@@ -65,20 +65,23 @@ module.exports = {
         }
     };
 
-    async function update(req, res) {
+    async function updateFav(req, res) {
         try{
-            const workoutDocument = await Workout.findByIdAndUpdate(req.params.id);
-            const b = await Workout.updateMany({},{
-                $pull: {workouts: {_id: req.params.id}}
-            })
-            
-            
-            // const workoutDocument = await req.body.userFavorites === 'on';
-            // const b = await Workout.findByIdAndUpdate(req.params.id, req.body);
-            // res.redirect('/categories');
+            const b = await Category.findOneAndUpdate({
+                '_id': req.params.categoryId, 'workouts._id': req.params.workoutId},
+                {
+                    '$set': {
+                        'workouts.$.userFavorites': true
+                    }
+                },
+                res.redirect(`/categories/${req.params.categoryId}`)
+                
+            )
 
         } catch(err) {
             console.log(err)
             res.status(500).send();
         }
     }
+
+    
