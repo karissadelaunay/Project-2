@@ -32,3 +32,49 @@ This is your passport boilerplate.
 #### Make a commit 
 
 ```git commit -m "setup up oauth and User Model"```
+
+
+#### User Stories (sudo code)
+
+1. I want to be able to create categories for my workouts
+2. I want to be able to create workouts within the categories
+3. When I click on a category I want to be able to see the workouts I have in that category
+4. I want to be able to delete workouts from the category
+5. I want to be able to update and check workouts as my favorites
+
+#### Technologies Used
+
+1. mongoDB Atlas
+2. Google OAuth
+3. node
+4. mongoose
+5. JavaScript
+6. Express
+7. CSS
+8. HTML
+
+#### WireFrames
+
+<img width="1440" alt="Screen Shot 2022-01-13 at 10 43 11 AM" src="https://user-images.githubusercontent.com/94722723/149400887-8796d2fd-44f8-4e8e-a1a5-9f26fb86cda0.png">
+
+#### ERD
+
+<img width="1440" alt="Screen Shot 2022-01-07 at 11 42 42 AM" src="https://user-images.githubusercontent.com/94722723/149401087-a4d3e6d7-273f-4b65-a26d-aacde592f61a.png">
+
+#### What is Workout With Me?
+
+1. Workout with me is an app that allows you to map out your workouts.  Going to the gym? Don't have a plan for what to do?  Workout With Me can fix that!  Use this app to plan your workout routine and add favorites and change workouts week to week.
+
+#### Screen Shots of app View
+
+<img width="1440" alt="Screen Shot 2022-01-13 at 11 53 43 AM" src="https://user-images.githubusercontent.com/94722723/149401447-2b8c12d6-cc68-415d-85b3-1ac0b5d1dcd4.png">
+
+<img width="1440" alt="Screen Shot 2022-01-13 at 11 53 52 AM" src="https://user-images.githubusercontent.com/94722723/149401542-9d92a3e3-1902-4a18-a06c-66ef25bdb68f.png">
+
+<img width="1440" alt="Screen Shot 2022-01-13 at 11 54 01 AM" src="https://user-images.githubusercontent.com/94722723/149401581-f7b2161a-1005-442e-bddb-ed41361ed6b6.png">
+
+<img width="1440" alt="Screen Shot 2022-01-13 at 11 54 19 AM" src="https://user-images.githubusercontent.com/94722723/149401613-c125413d-d903-431c-b8a1-f2a2ad5accb9.png">
+
+#### Link to app!
+
+https://warm-oasis-98309.herokuapp.com/users
