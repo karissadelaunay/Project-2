@@ -36,22 +36,23 @@ This is your passport boilerplate.
 
 #### User Stories (sudo code)
 
-1. I want to be able to create categories for my workouts
-2. I want to be able to create workouts within the categories
-3. When I click on a category I want to be able to see the workouts I have in that category
-4. I want to be able to delete workouts from the category
-5. I want to be able to update and check workouts as my favorites
+1. I want to be able to create categories for my workouts (create function get request)
+2. I want to be able to create workouts within the categories and add them to the category (create function(does two things) get request and post request)
+3. When I click on a category I want to be able to see the workouts I have in that category (read)
+4. I want to be able to delete workouts from the category (delete request)
+5. I want to be able to update and check workouts as my favorites (update put request)
 
 #### Technologies Used
 
 1. mongoDB Atlas
 2. Google OAuth
-3. node
+3. node.js
 4. mongoose
 5. JavaScript
 6. Express
 7. CSS
 8. HTML
+9. EJS
 
 #### WireFrames
 
