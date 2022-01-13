@@ -1,13 +1,15 @@
 .brand-logo {
+  display: grid;
+  grid-template-rows: 2fr, 1fr;
+  grid-template-areas:
+  "brand-logo"
+  "nav";
   margin-left: 15px;
+  font-size: bold;
 }
 
 .card .card-content .card-title {
   margin-bottom: 10px;
-}
-
-#search-row form {
-  padding-top: 20px;
 }
 
 .user-name {
@@ -15,14 +17,10 @@
   top: -5px;
 }
 
-.collection-item form {
-  margin-top: -5px;
-}
-
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #474949;
 }
 
 body {
@@ -37,7 +35,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #8fe3f8;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -49,7 +47,7 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8ECEB;
+  background-color: #b0f0e0;
   padding: 20px;
   overflow-y: scroll;
 }
@@ -67,7 +65,7 @@ nav > a {
 
 nav > a:hover {
   color: white;
-  background-color: #424748;
+  background-color: #13181a;
 }
 
 nav > a.active {
@@ -98,7 +96,7 @@ table {
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 2px solid #000000;
 }
 
 table td {
@@ -124,8 +122,14 @@ table td {
 
 #show-page {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 2fr, 2fr;
   grid-gap: 1rem;
+}
+
+#show-page label {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
 }
 
 #show-page div:nth-child(even) {
