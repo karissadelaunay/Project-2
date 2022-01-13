@@ -16,6 +16,11 @@
         <input type="checkbox" name="userFavorites" <%= w.userFavorites === true ? 'checked' : '' %>>
         <button type="submit">Save As Favorite</button>
   </form>
+
+  <form action="/workouts/<%= w._id %>?_method=DELETE"
+    class="delete-form" method="POST">
+    <button type="submit">X</button>
+  </form>
 <%})%>
 
   <% } else { %>
@@ -25,12 +30,12 @@
 
 <a href="/workouts/new/<%= category.id %>">New Workout</a>
 
-<% workouts.forEach(function(w) { %>
+<!-- <%# workouts.forEach(function(w) { %>
 
-    <form action="/workouts/<%= w._id %>?_method=DELETE"
+    <form action="/workouts/<%# w._id %>?_method=DELETE"
       class="delete-form" method="POST">
       <button type="submit">X</button>
     </form>
-    <% }); %>
+    <%# }); %> -->
 
 <%- include('../partials/footer') %>
