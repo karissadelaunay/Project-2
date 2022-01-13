@@ -78,3 +78,15 @@ This is your passport boilerplate.
 #### Link to app!
 
 https://warm-oasis-98309.herokuapp.com/users
+
+#### Link to Trello
+
+https://trello.com/b/rx8Kv9hx/project-2
+
+#### IceBox Features
+
+1. I want to be able to share my workouts with other users
+2. I want to be able to delete categories
+3. I want to be able to track my progress with before and after photos and weight tracking
+4. I want to be able to get inspirational notifications when I have hit goals
+5. I want to be able to set goals for my progress tracking
