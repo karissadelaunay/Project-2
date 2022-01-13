@@ -9,7 +9,6 @@ module.exports = {
 }
 
 async function index(req, res){
-    console.log(req.user)
     try{
 
         const categoryDocuments = await Category.find({userCategory: req.user._id})
@@ -46,6 +45,7 @@ async function create(req, res){
         category.userCategory = req.user._id;
         category.save();
         res.redirect('/categories');
+    
     } catch(err){
 
     }
